@@ -1,0 +1,386 @@
+ 
+<html>
+ 
+<head>
+        <title>Moleskine Notebook with jQuery Booklet</title>
+         
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    
+    
+
+ <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+ 
+ 
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="booklet/jquery.easing.1.3.js" type="text/javascript"></script>
+		<script src="booklet/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
+
+		<link href="booklet/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
+		 
+		 
+		 <style>
+         
+              *{
+	margin:0;
+	padding:0;
+}
+body{
+	background:#800080;
+	color:#444;
+	font-size:12px;
+	color: #333;
+    font-family: 'Oswald', sans-serif;
+     background-image: url("bday.jpg");
+}
+ 
+ 
+.booklet           {
+	width:900px;
+	height:607px;
+	position:relative;
+	margin:0 auto 10px;
+	-moz-box-shadow:0px 0px 1px #fff;
+	-webkit-box-shadow:0px 0px 1px #fff;
+	box-shadow:0px 0px 1px #fff;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+.booklet .b-wrap-left  {
+	background:#fff url(images/left_bg.jpg) no-repeat top left;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-topleft:10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.booklet .b-wrap-right {
+	background:#efefef url(images/right_bg.jpg) no-repeat top left;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.booklet .b-counter {
+	bottom:10px;
+	position:absolute;
+	display:block;
+	width:90%;
+	height:20px;
+	border-top:1px solid #ddd;
+	color:#222;
+	text-align:center;
+	font-size:12px;
+	padding:5px 0 0;
+	background:transparent;
+	-moz-box-shadow:0px -1px 1px #fff;
+	-webkit-box-shadow:0px -1px 1px #fff;
+	box-shadow:0px -1px 1px #fff;
+	opacity:0.8;
+}
+.book_wrapper{
+	margin:0 auto;
+	padding-top:50px;
+	width:905px;
+	height:540px;
+	position:relative;
+	background:transparent url(images/bg.png) no-repeat 9px 27px;
+}
+.book_wrapper h1{
+	color:orange;
+	margin:5px 5px 5px 15px;
+	font-size:24px;
+	background:transparent url(images/h1.png) no-repeat bottom left;
+	padding-bottom:7px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.book_wrapper p{
+	font-size:15px;
+	margin:5px 5px 5px 15px;
+}
+.book_wrapper a.article,
+.book_wrapper a.demo{
+	background:transparent url(images/circle.png) no-repeat 50% 0px;
+	display:block;
+	width:95px;
+	height:41px;
+	text-decoration:none;
+	outline:none;
+	font-size:16px;
+	color:#555;
+	float:left;
+	line-height:41px;
+	padding-left:47px;
+}
+.book_wrapper a.demo{
+	margin-left:50px;
+}
+.book_wrapper a.article:hover,
+.book_wrapper a.demo:hover{
+	background-position:50% -41px;
+	color:#13386a;
+}
+.book_wrapper img{
+	margin:10px 0px 5px 35px;
+	width:300px;
+	padding:4px;
+	border:1px solid #ddd;
+	-moz-box-shadow:1px 1px 1px #fff;
+	-webkit-box-shadow:1px 1px 1px #fff;
+	box-shadow:1px 1px 1px #fff;
+}
+.booklet .b-wrap-right img{
+	border:1px solid #E6E3C2;
+}
+a#next_page_button,
+a#prev_page_button{
+	display:none;
+	position:absolute;
+	width:41px;
+	height:40px;
+	cursor:pointer;
+	margin-top:-20px;
+	top:50%;
+	background:transparent url(images/buttons.png) no-repeat 0px -40px;
+}
+a#prev_page_button{
+	left:-30px;
+}
+a#next_page_button{
+	right:-30px;
+	background-position:-41px -40px;
+}
+a#next_page_button:hover{
+	background-position:-41px 0px;
+}
+a#prev_page_button:hover{
+	background-position:0px 0px;
+}
+#hap
+{
+text-align: center;
+    font-family: 'Nobile', sans-serif;
+    font-style: italic;
+    font-size: 50px;
+    font-weight:30px;
+    color:#800080;
+
+}
+.card-inside {
+    font-size: 2.0em;
+    line-height: 1.4;
+    font-family: 'Nobile';
+    color: #331717;
+    font-style: italic;
+    margin-top:25%
+}
+.signed
+{
+text-align:center;
+}
+#card-inside1
+{
+font-size: 2.2em;
+    line-height: 1.4;
+    font-family: 'Nobile';
+    color: #331717;
+    font-style: italic;
+    margin-top:12%
+}
+#card-inside2
+{
+font-size: 2.2em;
+    line-height: 1.4;
+    font-family: 'Nobile';
+    color: #331717;
+    font-style: italic;
+    margin-top:25%
+}
+
+         </style>
+		 
+    </head>
+    <body>
+    <br><br><br><br><br>
+		 
+		<div class="book_wrapper">
+			<a id="next_page_button"></a>
+			<a id="prev_page_button"></a>
+			 
+			<div id="mybook" style="display:none;">
+				<div class="b-load">
+					<div>
+						<img src="images/3.jpg" alt="" />
+						<h1 id="hap">Happy Birthday YAS!</h1>
+
+
+					</div>
+					<div class="card-inside">
+
+						 <p>Hey,</p>
+        <p>      “A wish for you on your birthday, whatever you ask may you receive, whatever you seek may you find, whatever you wish may it be fulfilled on your birthday and always. Happy birthday!</p>
+        <p>I will be there with you in your side whenever you seek me.
+        </p>
+        <p>always.</p>
+        <p>Enjoy your Day . Stay Blessed nd Happy . Keep Smiling :)</p>
+
+        <center><h4>from</h4></center>
+        <p class="signed">Resh </p>
+
+					</div>
+					<div>
+					<img src="img1.jpeg">
+						</div>
+					<div class="card-inside">
+
+
+						<p>yas,<br>
+						I still remember the first day we  met . Actually I thought I was in B-section . But god had a different
+							plan for me .Yes! He has decided that I should meet two crazy persons...u was so sweet and kind.
+					    we have not taken pic on th first day.Yet this is the pic from first year. I luv this pic a lot because we
+							wantedly went to clock tower to just take photos.
+						</p>
+
+					</div>
+					<div>
+						<img src="img2.jpeg" alt="" /><br><br>
+
+						<p class="card-inside">We took this pic when our class first uniformly made a decision to wear blue dress . I did'nt
+						get good pics sry...</p>
+
+					</div>
+					<div>
+						<img src="img3.jpeg" alt="" />
+
+						<br><br><br><p class="card-inside"> Do you remember this pic d. in between our busy project of EC we wandered around the humanity block just to take pics
+						You aimed to cover the entire humanity block and we made fun of you.....I am now going to memories of first year d
+
+						</p>
+
+					</div>
+					<div>
+						<img src="img4.jpeg" alt="" />
+
+
+					</div>
+					<div>
+
+						<br><br><br><br><p class="card-inside"> This is something special to you d . beacuse this is your birthday pic of 2nd year. we bunked our lab and while walking through fountain we just
+						clicked this .. Do you remember the pic which I took which you also posted in insta  and that was the first pic which I clicked gud.I thought to give  cake cut as a surprise but that was a total flop
+						What to do? That was a situation where I was forced to tell you the plan to make you to bunk the lab..
+
+						</p>
+					</div>
+					<div>
+						<img src="img5.jpeg" alt="" />
+
+
+
+					</div>
+					<div>
+						<br><br><br><br>
+						<br><br><br><br>
+						<br><br><br><br>
+						<p class="card-inside"> I luv this pic a lot d . Don't know why...I also luv the dress which I wear in this pic
+						PULI DRESS name given by sai... <br>
+							I Don't actually remember the class but staff did not come so we went for a walk and sat in ece block and clicked this
+						</p>
+					</div>
+					<div>
+						<img src="img6.jpeg" alt="" />
+
+
+					</div>
+					<div>
+						<br><br><br><br>
+						<br><br><br><br>
+
+						<p class="card-inside">The day which we enjoyed a lot .... Night funs and games.INSTINCTS. you look so pretty in this pic d.we ate parotta
+						in main canteen ...and just we wandered around the clock tower and took pictures in the hot sun.. The unique thing about you
+							is you give good poses and ur smiles always admires me..You are gud in studies , gud in art,a gud ya ya for Rifa,gud friend ,gud helper
+							reallly ur gud supporter in my works , imagining a project without you is hard for me d and gud SELFIE TAKER.
+						</p>
+
+					</div>
+					<div>
+						<img src="img7.jpeg" alt="" />
+
+						<p class="card-inside">This is your first Quarantine birthday pic... Don't forget to send this birthday pic d..</p>
+
+					</div>
+					<div>
+						<img src="img8.jpeg" alt=""   style="height:350px"/>
+
+						<p class="card-inside">studious girl working on project ...Do you remember this d.In my home doing IOT Project</p>
+
+					</div>
+					<div>
+						<p id="card-inside1" >
+							Hope you lov this d ...Tried my best,nalla irukanu apro msg pannunga yasmin ji..
+							<br>
+							resh is the name which you gave me sweetly and only one who call's this name the most is you my dr....
+							<br>Thanks a lot for bearing me
+							for 3 years and should bear for one more year toooooooooo.
+
+						</p>
+					</div>
+					<div>
+						<p id="card-inside2" >
+							LUUUUUUV YOUUUUUUU
+							<br>
+							Wishing you a happy birthday ....Enjoy your day
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+        <audio controls autoplay>
+
+  <source src="bdayso.mp3" type="audio/mp3">
+
+</audio>
+        <script type="text/javascript">
+			$(function() {
+				var $mybook 		= $('#mybook');
+				var $bttn_next		= $('#next_page_button');
+				var $bttn_prev		= $('#prev_page_button');
+				var $loading		= $('#loading');
+				var $mybook_images	= $mybook.find('img');
+				var cnt_images		= $mybook_images.length;
+				var loaded			= 0;
+				 
+				$mybook_images.each(function(){
+					var $img 	= $(this);
+					var source	= $img.attr('src');
+					$('<img/>').load(function(){
+						++loaded;
+						if(loaded == cnt_images){
+							$loading.hide();
+							$bttn_next.show();
+							$bttn_prev.show();
+							$mybook.show().booklet({
+								name:               null,                            //  
+								width:              800,                             //  
+								height:             500,                             //   
+								speed:              1000,                             //
+								direction:          'LTR',                           //  
+								                           //  
+								next:               $bttn_next,          			//  
+								prev:               $bttn_prev,          			//  
+								                       
+							});
+							Cufon.refresh();
+						}
+					}).attr('src',source);
+				});
+				
+			});
+        </script>
+ 
+    </body>
+ 
+</html>
